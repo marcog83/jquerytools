@@ -9,7 +9,15 @@
  * Since: September 2009
  * Date: @DATE 
  */
-(function($) {		
+(function (factory) {
+	if (typeof define === 'function' && define.amd) {
+		// AMD. Register as an anonymous module.
+		define(['jquery'], factory);
+	} else {
+		// Browser globals
+		factory(jQuery);
+	}
+}(function($) {
 
 	var t = $.tools.scrollable; 
 	
@@ -94,4 +102,4 @@
 		
 	}; 
 	
-})(jQuery);		
+}));

@@ -9,7 +9,15 @@
  * Since: November 2008
  * Date: @DATE 
  */
-(function($) { 	
+(function (factory) {
+	if (typeof define === 'function' && define.amd) {
+		// AMD. Register as an anonymous module.
+		define(['jquery'], factory);
+	} else {
+		// Browser globals
+		factory(jQuery);
+	}
+}(function($) {
 	// static constructs
 	$.tools = $.tools || {version: '@VERSION'};
 	
@@ -351,8 +359,8 @@
 		
 		return conf.api ? api: this;		 
 	};
-		
-}) (jQuery);
+
+}));
 
 		
 
